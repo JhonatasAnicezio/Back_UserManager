@@ -4,7 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed:all": "sequelize db:seed:all",
+    "db:reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
+  },
+  "sequelize": {
+    "config": "./src/config/database.js",
+    "models-path": "./src/models",
+    "seeders-path": "./src/seeders",
+    "migrations-path": "./src/migrations"
   },
   "author": "",
   "license": "ISC",
