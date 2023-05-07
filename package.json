@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node ./src/index.ts",
+    "start": "nodemon --watch \"./src/**\" ./src/api/server.ts",
     "db:migrate": "sequelize db:migrate",
     "db:seed:all": "sequelize db:seed:all",
     "db:reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
@@ -20,6 +20,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "nodemon": "^2.0.22",
     "sequelize-cli": "6.2.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
