@@ -1,7 +1,7 @@
-import 'dotenv/config';
-import { Options } from 'sequelize';
+require('dotenv/config');
+const { Sequelize } = require('sequelize');
 
-const config: Options = {
+const config = {
   username: process.env.DB_USER || 'root',
   password: process.env.DB_PASS || '123456',
   database: 'TRYBE_FUTEBOL_CLUBE',
@@ -12,6 +12,6 @@ const config: Options = {
     timezone: 'Z',
   },
   logging: false,
-}
+};
 
 module.exports = config;
