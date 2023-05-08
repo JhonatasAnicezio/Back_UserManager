@@ -14,4 +14,9 @@ teamRouter.post(
   (req: Request, res: Response) => userController.postLogin(req, res),
 );
 
+teamRouter.put(
+  '/register',
+  (req: Request, res: Response) => userController.postRegister(req, res),
+);
+
 export default teamRouter;
