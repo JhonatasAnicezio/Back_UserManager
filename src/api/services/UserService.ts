@@ -1,7 +1,7 @@
 import * as bcryptjs from 'bcryptjs';
 import User from '../../database/models/Users';
 import IMessage from '../interfaces/IUtils';
-import IServiceUser from '../interfaces/IServiceUser';
+import IServiceUser, { Login } from '../interfaces/IServiceUser';
 import JWTUtil from '../utils/JWTUtil';
 
 class UserService implements IServiceUser {
@@ -9,7 +9,7 @@ class UserService implements IServiceUser {
 
   private _JWTUtil: JWTUtil = new JWTUtil();
 
-  async postLogin({ email, password }: User): Promise<IMessage> {
+  async postLogin({ email, password }: Login): Promise<IMessage> {
     const user = await this.model.findOne({
       where: { email },
     });
@@ -22,6 +22,25 @@ class UserService implements IServiceUser {
     const token = this._JWTUtil.generateToken(user);
 
     return { type: 200, message: { token } };
+  }
+
+  async postRegister({ name, email, password, role }: User): Promise<IMessage> {
+    const user = await this.model.findOne({
+      where: { email },
+      attributes: { exclude: ['password', 'id'] },
+    });
+  
+    if (user) {
+      return { type: 409, message: 'Conflict' };
+    }
+
+    const saltRounds = 8;
+
+    const hashedPassword = bcryptjs.hashSync(password, saltRounds);
+
+    await this.model.create({ name, email, password: hashedPassword, role });
+
+    return { type: 201, message: 'Created' };
   }
 }
 
