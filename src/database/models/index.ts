@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import * as config from '../config/config';
+const config = require('../config/config');
 
 const sequelize = new Sequelize(config);
 
