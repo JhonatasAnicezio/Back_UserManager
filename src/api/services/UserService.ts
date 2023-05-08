@@ -3,6 +3,8 @@ import User from '../../database/models/Users';
 import IMessage from '../interfaces/IUtils';
 import IServiceUser, { Login } from '../interfaces/IServiceUser';
 import JWTUtil from '../utils/JWTUtil';
+import IUser from '../interfaces/IUsers';
+import { Op } from 'sequelize';
 
 class UserService implements IServiceUser {
   protected model = User;
@@ -45,6 +47,19 @@ class UserService implements IServiceUser {
 
   async deleteUser(id: number): Promise<void> {
     await this.model.destroy({ where: { id } });
+  }
+
+  async getUsers(): Promise<IUser[]> {
+    const users = await this.model.findAll({
+      where: {
+        role: {
+          [Op.not]: 'admin',
+        },
+      },
+      attributes: { exclude: ['password'] },
+    });
+  
+    return users;
   }
 }
 
