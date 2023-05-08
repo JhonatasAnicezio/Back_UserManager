@@ -1,9 +1,9 @@
 import * as jwt from 'jsonwebtoken';
 import 'dotenv/config';
+import IUser from '../interfaces/IUsers';
 
 interface iTokenPayload {
-  email: string;
-  password: string;
+  payload: IUser;
 }
 
 class JWTUtil {
