@@ -1,4 +1,5 @@
 import express from 'express';
+import userRouter from '../api/routes/UserRouter';
 
 class App {
 	public app: express.Express;
@@ -7,9 +8,6 @@ class App {
 		this.app = express();
 
 		this.config();
-
-		//  Não remover essa rota
-		this.app.get('/', (_req, res) => res.json({ ok: true }));
 		this.initRoutes();
 	}
 
@@ -26,6 +24,7 @@ class App {
 	}
 
 	private initRoutes(): void {
+		this.app.use(userRouter);
 	}
 
 	public start(PORT: string | number):void {
