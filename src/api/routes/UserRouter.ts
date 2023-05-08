@@ -15,8 +15,13 @@ teamRouter.post(
 );
 
 teamRouter.put(
-  '/register',
+  '/',
   (req: Request, res: Response) => userController.postRegister(req, res),
+);
+
+teamRouter.delete(
+  '/:id',
+  (req: Request, res: Response) => userController.deleteUser(req, res),
 );
 
 export default teamRouter;
