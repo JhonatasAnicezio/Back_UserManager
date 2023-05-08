@@ -24,4 +24,9 @@ teamRouter.delete(
   (req: Request, res: Response) => userController.deleteUser(req, res),
 );
 
+teamRouter.get(
+  '/',
+  (req: Request, res: Response) => userController.getUsers(req, res),
+);
+
 export default teamRouter;
