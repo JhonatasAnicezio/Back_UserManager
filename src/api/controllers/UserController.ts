@@ -25,6 +25,18 @@ class UserController {
 
     return res.status(newUser.type).json({ message: newUser.message });
   };
+
+  async deleteUser (req: Request, res: Response) {
+    const { id } = req.params;
+  
+    try {
+      await this._service.deleteUser(Number(id));
+  
+      return res.status(200).end();
+    } catch (error) {
+      return res.status(400).json({ message: 'not found' });
+    }
+  };
 }
 
 export default UserController;
