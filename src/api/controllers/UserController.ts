@@ -37,6 +37,12 @@ class UserController {
       return res.status(400).json({ message: 'not found' });
     }
   };
+
+  async getUsers (req: Request, res: Response) {
+    const users = await this._service.getUsers();
+
+    return res.status(200).json({ users });
+  }
 }
 
 export default UserController;
