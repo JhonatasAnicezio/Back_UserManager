@@ -42,6 +42,10 @@ class UserService implements IServiceUser {
 
     return { type: 201, message: 'Created' };
   }
+
+  async deleteUser(id: number): Promise<void> {
+    await this.model.destroy({ where: { id } });
+  }
 }
 
 export default UserService;
