@@ -9,4 +9,5 @@ export type Login = {
 export default interface IServiceUser {
   postLogin(user: Login):Promise<IMessage>
   postRegister(user: User):Promise<IMessage>
+  deleteUser(id: number):Promise<void>
 }
