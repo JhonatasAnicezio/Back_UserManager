@@ -15,7 +15,7 @@ teamRouter.post(
   (req: Request, res: Response) => userController.postLogin(req, res),
 );
 
-teamRouter.put(
+teamRouter.post(
   '/',
   validateFieldsUser.verify,
   (req: Request, res: Response) => userController.postRegister(req, res),
@@ -33,6 +33,13 @@ teamRouter.get(
   authToken.verify,
   authToken.verifyAdmin,
   (req: Request, res: Response) => userController.getUsers(req, res),
+);
+
+teamRouter.put(
+  '/:id',
+  authToken.verify,
+  authToken.verifyAdmin,
+  (req: Request, res: Response) => userController.updateUsers(req, res),
 );
 
 export default teamRouter;
