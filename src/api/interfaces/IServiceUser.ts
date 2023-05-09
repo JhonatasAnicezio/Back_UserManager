@@ -12,4 +12,5 @@ export default interface IServiceUser {
   postRegister(user: User):Promise<IMessage>
   deleteUser(id: number):Promise<void>
   getUsers():Promise<IUser[]>
+  updateUsers(id: number, newRole: string):Promise<void>
 }
