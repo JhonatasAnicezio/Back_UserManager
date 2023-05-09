@@ -43,6 +43,18 @@ class UserController {
 
     return res.status(200).json({ users });
   }
+
+  async updateUsers (req: Request, res: Response) {
+    const { id } = req.params;
+    const { role } = req.body;
+
+    try {
+      await this._service.updateUsers(Number(id), role);
+      return res.status(200).json({ message: 'successfully updated' });
+    } catch (error) {
+      return res.status(500).json({ message: error });
+    }
+  }
 }
 
 export default UserController;
