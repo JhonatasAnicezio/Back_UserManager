@@ -61,6 +61,10 @@ class UserService implements IServiceUser {
   
     return users;
   }
+
+  async updateUsers(id: number, newRole: string): Promise<void> {
+    await this.model.update({ role: newRole }, { where: { id } });
+  }
 }
 
 export default UserService;
