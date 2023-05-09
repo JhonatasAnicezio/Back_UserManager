@@ -13,7 +13,6 @@ class authToken {
 
     try {
       const { payload } = jwtService.verifyToken(authorization);
-      console.log(payload);
       req.body.token = payload;
       return next();
     } catch (err) {
@@ -23,7 +22,6 @@ class authToken {
 
   public static verifyAdmin(req: Request, res: Response, next: NextFunction) {
     const { token: { payload } } = req.body;
-    console.log(payload)
 
     if (!payload) {
       return res.status(401).json({ message: 'Token not found in admin' });
