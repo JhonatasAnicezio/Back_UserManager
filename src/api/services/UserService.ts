@@ -21,7 +21,7 @@ class UserService implements IServiceUser {
 
     if (!pass) return { type: 401, message: 'Invalid email or password' };
 
-    const token = this._JWTUtil.generateToken(user);
+    const token = this._JWTUtil.generateToken({ payload: user});
 
     return { type: 200, message: { token } };
   }
