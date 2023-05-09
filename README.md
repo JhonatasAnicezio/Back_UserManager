@@ -3,7 +3,7 @@
 
 ### Olá seja bem vindo ao Back User Manager!
 
-Este é um projeto simples de gerenciamento de usuários em uma API RESTful desenvolvido em TypeScript utilizando o Sequelize ORM e MySQL como banco de dados. A arquitetura adotada foi a MSC (Model-Service-Controller), onde as responsabilidades foram divididas em módulos distintos, tornando o projeto organizado e escalável.
+Este é um projeto simples de gerenciamento de usuários em uma API RESTfull desenvolvido em TypeScript utilizando o Sequelize ORM e MySQL como banco de dados. A arquitetura adotada foi a MSC (Model-Service-Controller), onde as responsabilidades foram divididas em módulos distintos, tornando o projeto organizado e escalável.
 
 As rotas disponíveis na API incluem cadastro de usuário, login de usuário e admin, atualização de informações do usuário e deleção de usuário (somente para administradores). Este projeto foi desenvolvido com o intuito de servir como exemplo para estudos e aprendizado sobre desenvolvimento de APIs em TypeScript com banco de dados MySQL.
 
@@ -25,8 +25,8 @@ git clone https://github.com/JhonatasAnicezio/Back_UserManager.git
 # entrar na pasta do projeto
 cd Back_UserManager
 ```
-### Com docker
-Se ainda não tiver o docker em sua maquina, e quiser rodar o projeto com ele de uma olhada na documentação: https://docs.docker.com/compose/
+### !! Atenção !!
+O projeto possui dependência do Docker e do Docker Compose. Se você ainda não possui o Docker instalado e configurado em sua máquina, é extremamente importante instalá-lo antes de executar o projeto. Caso ainda não esteja familiarizado com o Docker, você pode conferir a documentação em: https://docs.docker.com/compose/.
 
 ```bash
 # em seu arquivo raiz execute o comando docker-compose up
@@ -41,24 +41,6 @@ npm run db:reset
 npm start
 ```
 
-Se estiver ultilizando yarn:
-
-```bash
-# instalar dependências
-yarn install
-
-# executar o projeto
-yarn start
-```
-Se estiver ultilizando npm:
-
-```bash
-# instalar dependências
-npm install
-
-# executar o projeto
-npm start
-```
 # Autor
 
 Jhonatas Anicezio Segismundo
