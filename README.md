@@ -98,8 +98,8 @@ npm start
   "users": [
     {
       "id": 2,
-      "name": "User",
-      "email": "user@user.com",
+      "name": "jhonatas anicezio",
+      "email": "jhonatas@anicezio.com",
       "role": "user"
     },
     {
