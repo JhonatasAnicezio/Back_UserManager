@@ -23,9 +23,15 @@ class UserService implements IServiceUser {
 
     delete (user as { password?: string }).password;
 
+    const userData = {
+      id: user.id,
+      name: user.name,
+      role: user.role,
+    };
+
     const token = this._JWTUtil.generateToken({ payload: user});
 
-    return { type: 200, message: { token } };
+    return { type: 200, message: { token, userData } };
   }
 
   async postRegister({ name, email, password, role }: User): Promise<IMessage> {
