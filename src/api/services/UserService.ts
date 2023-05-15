@@ -41,7 +41,7 @@ class UserService implements IServiceUser {
     });
   
     if (user) {
-      return { type: 409, message: 'Conflict' };
+      return { type: 409, message: 'E-mail already registered' };
     }
 
     const saltRounds = 8;
