@@ -23,7 +23,7 @@ class UserController {
       return res.status(newUser.type).json(message);
     }
 
-    return res.status(newUser.type).json({ message: newUser.message });
+    return res.status(newUser.type).json(newUser.message);
   };
 
   async deleteUser (req: Request, res: Response) {
