@@ -41,6 +41,107 @@ npm run db:reset
 npm start
 ```
 
+## Fluxo 1: Usuarios Comuns
+-  !! Atenção !! Todas as regras de negócio refeerentes a permissão deverão ser realizados no seu front-end. Por isso o usuario pode se cadastrar com a role que quiser!
+<details>
+  <summary><strong> Login(POST): /user/login </strong></summary>
+  
+  - Para a realização do login deve se passar os seguintes dados dentro do body:
+
+```json
+  {
+    "email": "user@user.com",
+    "password": "secret_user"
+  },
+```
+  se todas as informações estiverem corretas será retornado um token:
+  
+```json
+  {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InBheWxvYWQiOnsiaWQiOjIsIm5hbWUiOiJVc2VyIiwiZW1haWwiOiJ1c2VyQHVzZXIuY29tIiwicGFzc3dvcmQiOiIkMmEkMDgkWThBYmk4alh2c1h5cW0ucm1wMEIudVFCQTVxVXo3VDZHaGxnL0N2VnIvZ0x4WWo1VUFaVk8iLCJyb2xlIjoidXNlciJ9fSwiaWF0IjoxNjgzNjU2MjkyLCJleHAiOjE2ODM5MTU0OTJ9.4JlOZRUbK8Dw9Sn0RewMqgpJcR0DyyQ0E2WHZqPxgok"
+  },
+```
+</details>
+
+<details>
+  <summary><strong> Register(POST): /user </strong></summary>
+
+  - Para a realização do cadastro deve se passar os seguintes dados dentro do body:
+
+```json
+  {
+    "email": "mi@fernands.com",
+    "password": "mi123456",
+    "name": "milena fernands",
+    "role": "user"
+  }
+```
+  se todas as informações estiverem corretas será retornado um token referente ao novo usuario cadastrado:
+  
+```json
+  {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InBheWxvYWQiOnsiaWQiOjMsIm5hbWUiOiJtaWxlbmEgZmVybmFuZHMiLCJlbWFpbCI6Im1pQGZlcm5hbmRzLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA4JDVYSTlTczJjc2tWVkxlMG9YZjM0YnVGUkZkN3E5WXNoMlkwWURFbnB1VEV6TFhKSm1RbGJtIiwicm9sZSI6InVzZXIifX0sImlhdCI6MTY4MzY1NzAwNSwiZXhwIjoxNjgzOTE2MjA1fQ.CtOv56mk3nxlZNnExKYID-mtE80OcBmZYaRYCAzq7Wk"
+  },
+```
+</details>
+
+## Fluxo 2: Administradores
+-  !! Atenção !! As rotas a seguir são referentes apenas aos administradores, por tanto é necessario que se passe um token dentro do header da requisição com o nome de authorization
+
+<details>
+  <summary><strong> Get users(GET): /user </strong></summary>
+  
+  retorno da requisição
+  
+```json
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "jhonatas anicezio",
+      "email": "jhonatas@anicezio.com",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "name": "milena fernands",
+      "email": "mi@fernands.com",
+      "role": "user"
+    }
+  ]
+}
+```
+</details>
+
+<details>
+  <summary><strong> Update role(PUT): /user/:id </strong></summary>
+
+  - Para a realização do cadastro deve se passar o parametro id do usuario que você quer alterar, e passar o novo cargo pelo body:
+
+```json
+  {
+    "role": "admin"
+  },
+```
+  
+  se todas as informações estiverem corretas será retornado uma mensagem de sucesso:
+  
+```json
+{
+  "message": "successfully updated"
+},
+```
+</details>
+
+<details>
+  <summary><strong> Delete user(DELETE): /user/:id </strong></summary>
+
+  - Para remover um usuario deve se passar o seu id pelo parametro do endpoint:
+  
+  Esta operação não possui um retorno em json
+</details>
+
+
 # Autor
 
 Jhonatas Anicezio Segismundo
