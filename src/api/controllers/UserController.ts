@@ -26,6 +26,12 @@ class UserController {
     return res.status(newUser.type).json(newUser.message);
   };
 
+  async postRegisterAdmin(req: Request, res: Response) {
+    const newUser = await this._service.postRegister(req.body);
+
+    return res.status(newUser.type).json(newUser.message);
+  };
+
   async deleteUser (req: Request, res: Response) {
     const { id } = req.params;
   
