@@ -21,6 +21,14 @@ teamRouter.post(
   (req: Request, res: Response) => userController.postRegisterUser(req, res),
 );
 
+teamRouter.post(
+  '/admin',
+  validateFieldsUser.verify,
+  authToken.verify,
+  authToken.verifyAdmin,
+  (req: Request, res: Response) => userController.postRegisterAdmin(req, res),
+);
+
 teamRouter.delete(
   '/:id',
   authToken.verify,
