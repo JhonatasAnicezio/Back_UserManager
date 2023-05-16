@@ -70,6 +70,21 @@ class UserService implements IServiceUser {
     return users;
   }
 
+  async getActualUser(id: number): Promise<IUser | string> {
+    const user = await this.model.findOne({
+      where: { id },
+      attributes: { exclude: ['password'] },
+    });
+
+    if(user) {
+      delete (user as { password?: string }).password;
+
+      return user;
+    }
+
+    return 'user not found';
+  }
+
   async updateUsers(id: number, newRole: string): Promise<void> {
     await this.model.update({ role: newRole }, { where: { id } });
   }
