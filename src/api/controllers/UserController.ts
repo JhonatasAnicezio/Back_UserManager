@@ -13,7 +13,7 @@ class UserController {
     return res.status(type).json(message);
   }
 
-  async postRegister(req: Request, res: Response) {
+  async postRegisterUser(req: Request, res: Response) {
     const { password, email } = req.body;
     const newUser = await this._service.postRegister(req.body);
   

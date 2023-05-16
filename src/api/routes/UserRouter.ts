@@ -18,7 +18,7 @@ teamRouter.post(
 teamRouter.post(
   '/',
   validateFieldsUser.verify,
-  (req: Request, res: Response) => userController.postRegister(req, res),
+  (req: Request, res: Response) => userController.postRegisterUser(req, res),
 );
 
 teamRouter.delete(
