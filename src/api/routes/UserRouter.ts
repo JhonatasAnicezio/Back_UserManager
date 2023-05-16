@@ -43,6 +43,12 @@ teamRouter.get(
   (req: Request, res: Response) => userController.getUsers(req, res),
 );
 
+teamRouter.get(
+  '/me',
+  authToken.verify,
+  (req: Request, res: Response) => userController.getActualUser(req, res),
+);
+
 teamRouter.put(
   '/:id',
   authToken.verify,
