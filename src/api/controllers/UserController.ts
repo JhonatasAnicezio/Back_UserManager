@@ -50,6 +50,14 @@ class UserController {
     return res.status(200).json({ users });
   }
 
+  async getActualUser (req: Request, res: Response) {
+    const { payload } = req.body.token;
+
+    const user = await this._service.getActualUser(payload.id);
+
+    return res.status(200).json(user);
+  }
+
   async updateUsers (req: Request, res: Response) {
     const { id } = req.params;
     const { role } = req.body;
