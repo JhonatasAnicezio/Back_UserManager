@@ -70,7 +70,7 @@ class UserService implements IServiceUser {
     return users;
   }
 
-  async getActualUser(id: number): Promise<IUser | string> {
+  async getActualUser(id: number): Promise<IMessage> {
     const user = await this.model.findOne({
       where: { id },
       attributes: { exclude: ['password'] },
@@ -79,10 +79,10 @@ class UserService implements IServiceUser {
     if(user) {
       delete (user as { password?: string }).password;
 
-      return user;
+      return { type: 200, message: user };
     }
 
-    return 'user not found';
+    return { type: 404, message: 'user not found' };
   }
 
   async updateUsers(id: number, newRole: string): Promise<void> {

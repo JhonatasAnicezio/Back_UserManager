@@ -13,5 +13,5 @@ export default interface IServiceUser {
   deleteUser(id: number):Promise<void>
   getUsers():Promise<IUser[]>
   updateUsers(id: number, newRole: string):Promise<void>
-  getActualUser(id: number): Promise<IUser | string>
+  getActualUser(id: number): Promise<IMessage>
 }

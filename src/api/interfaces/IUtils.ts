@@ -1,3 +1,5 @@
+import IUser from "./IUsers"
+
 type Token = {
   token: string,
   userData: {
@@ -10,6 +12,7 @@ type Token = {
 export default interface IMessage {
   type: number,
   message:
+  | IUser
   | Token
   | string
 }

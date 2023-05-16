@@ -55,7 +55,7 @@ class UserController {
 
     const user = await this._service.getActualUser(payload.id);
 
-    return res.status(200).json(user);
+    return res.status(user.type).json(user.message);
   }
 
   async updateUsers (req: Request, res: Response) {
