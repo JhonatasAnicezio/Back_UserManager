@@ -179,6 +179,25 @@ npm start
 ```
 </details>
 
+<details>
+  <summary><strong> Update role(PUT): /user/:id </strong></summary>
+
+  - Para atualizar a role, basta passar o id no path, e a role no body como no exemplo a baixo :
+  
+  ```json
+{
+  "role": "admin"
+}
+```
+  se todas as informações estiverem corretas será retornado uma mensagem de sucesso:
+  
+```json
+{
+  "message": "successfully updated"
+}
+```
+</details>
+
 
 # Autor
 
