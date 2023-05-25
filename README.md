@@ -86,6 +86,23 @@ npm start
 ```
 </details>
 
+<details>
+  <summary><strong> Find user actual(GET): /user/me </strong></summary>
+
+  - Essa rota serve para fazer uma atualização do usuario que já esta logado, por isso é necessario passar um token no header:
+
+  se o token for valido, ele ira retornar o usuario do banco de dados, assim garantindo que as informações estejam atuais:
+  
+```json
+{
+  "id": 1,
+  "name": "Zé Admin",
+  "email": "ze@admin.com",
+  "role": "admin"
+},
+```
+</details>
+
 ## Fluxo 2: Administradores
 -  !! Atenção !! As rotas a seguir são referentes apenas aos administradores, por tanto é necessario que se passe um token dentro do header da requisição com o nome de authorization
 
