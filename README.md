@@ -159,6 +159,26 @@ npm start
   Esta operação não possui um retorno em json
 </details>
 
+<details>
+  <summary><strong> Create user(POST): /user/admin </strong></summary>
+
+  - Para criar um novo usuario você deve passar os mesmos valores que passa para o cadastro, porém tera um retorno diferente:
+  
+  ```json
+  {
+    "email": "mi@fernands.com",
+    "password": "mi123456",
+    "name": "milena fernands",
+    "role": "moderator"
+  }
+```
+  se todas as informações estiverem corretas será retornado um token referente ao novo usuario cadastrado:
+  
+```json
+    "Created"
+```
+</details>
+
 
 # Autor
 
