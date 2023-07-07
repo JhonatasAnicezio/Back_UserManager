@@ -9,10 +9,11 @@ Este é um projeto simples de gerenciamento de usuários em uma API RESTfull des
 As rotas disponíveis na API incluem cadastro de usuário, login de usuário e admin, atualização de informações do usuário e deleção de usuário (somente para administradores). Este projeto foi desenvolvido com o intuito de servir como exemplo para estudos e aprendizado sobre desenvolvimento de APIs em TypeScript com banco de dados MySQL.
 
 ## Tecnologias utilizadas:
+  - Node.js
   - TypeScript
   - Squelize
   - Arquitetura MSC
-  - Docker/Docker-Compose
+  - MySQL
   
 ## Como rodar o projeto:
 Pré-requisitos: Node ^16.14
